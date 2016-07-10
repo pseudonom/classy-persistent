@@ -1,0 +1,62 @@
+name:                classy-persistent
+version:             0.1.0.0
+synopsis:            Use `persistent` with types which cannot be directly expressed as entities
+description:         Please see README.md
+homepage:            https://github.com/pseudonom/classy-persistent
+license:             BSD3
+license-file:        LICENSE
+author:              Eric Easley
+maintainer:          eric101111@gmail.com
+copyright:           Eric Easley 2016
+category:            Database
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+tested-with:         GHC == 7.10.2
+
+library
+  default-extensions:  FlexibleContexts
+                     , FunctionalDependencies
+                     , GADTs
+                     , MultiParamTypeClasses
+                     , ScopedTypeVariables
+                     , StandaloneDeriving
+                     , TypeFamilies
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+  hs-source-dirs:      src
+  exposed-modules:     Database.Persistent.Classy
+  build-depends:       base >= 4.7 && < 5
+                     , fail
+                     , mtl
+                     , persistent
+                     , transformers
+
+test-suite spec
+  default-extensions:  FlexibleInstances
+                     , GADTs
+                     , MultiParamTypeClasses
+                     , NoImplicitPrelude
+                     , OverloadedStrings
+                     , TemplateHaskell
+                     , TypeFamilies
+                     , QuasiQuotes
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , classy-persistent
+                     , fail
+                     , monad-logger
+                     , mtl
+                     , persistent-sqlite
+                     , persistent-template
+                     , these
+                     , transformers
+
+
+source-repository head
+  type:     git
+  location: https://github.com/pseudonom/classy-persistent
